@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<!--   Skills :
+    <form action="#" id="skills" style="margin-bottom: 20px;">
+        <input type="checkbox" name="skills" value="c">c
+        <input type="checkbox" name="skills" value="java">java
+        <input type="checkbox" name="skills" value="C#">C#
+        <input type="checkbox" name="skills" value="c+">c+
+    </form>
+
+
+    Preferred Cities :
+    <form action="#" id="cities" style="margin-bottom: 20px;">
+        <input type="checkbox" name="cities" value="New York">New York
+        <input type="checkbox" name="cities" value="New Delhi">New Delhi
+        <input type="checkbox" name="cities" value="London">London
+    </form>
+
+
+    <br>
+    <input type="button" value="Get Selected Skills" onclick="getAllSkills();">
+    <input type="submit" value="Get Selected Cities" onclick="getAllCities();">
+    <br><br>
+
+    ALL Skills show
+    <div>
+        <h2>Skills</h2>
+        <p id="skillsValue"></p>
+    </div>
+
+    ALL Cities show
+    <div style="margin-bottom: 10px;">
+        <h2>Cities</h2>
+        <p id="citiesValues"></p>
+    </div> -->
+
+
+<!-- 	<script>
+	function FunctionalShared(manufacture, model, year) {
+let object = {};
+object.manufacture = manufacture;
+object.model = model;
+object.year = year;
+extend(object, FunctionalShared.methods);
+
+return object
+};
+
+function extend(object, methods) {
+	for(let key in methods) {
+		object[key] = methods[key];
+	}
+}
+FunctionalShared.methods = {
+	'play': function() { console.log('Lets play: '); },
+	'shred': function() { console.log('Let\'s shred: '); },
+	'hendrix': function() { console.log('Lets hendrix: '); }
+}
+
+let myFunctionalShared = FunctionalShared("Rocky", "B-34", 111);
+console.log(myFunctionalShared.shred()); -->
+	<!-- </script> -->
+
+<!--   <script>
+var data = [{
+  "id": "1233213",
+  "no": 17,
+  "fullName": "Murat Doğan",
+  "position": "CMD",
+  "age": 29,
+  "dateOfBirth": "1985-08-06T00:00:00",
+  "match": 12,
+  "time": 1080,
+  "goal": 12,
+  "assist": 4,
+  "yellowCard": 3,
+  "doubleYellowCard": 0,
+  "redCard": 2 },
+{
+  "id": "41233213",
+  "no": 58,
+  "fullName": "Lorem Ipsum",
+  "position": "GK",
+  "age": 28, "dateOfBirth": "1985-08-06T00:00:00",
+  "match": 34,
+  "time": 3400,
+  "goal": 1,
+  "assist": 17,
+  "yellowCard": 8,
+  "doubleYellowCard": 3,
+  "redCard": 5 }];
+
+  var currentFilter = "", prevFilter = "", orderASC = false;
+
+  var sortTable = (array, sortKey) => {
+    return array.sort((a, b) => {
+      let x = a[sortKey],
+        y = b[sortKey];
+
+        return orderASC ? x - y : y - x
+    });
+  };
+
+
+  console.log(sortTable(data, currentFilter));
+
+</script> -->
+
+
+
+
+<!--     <p>
+  The sum of 1 and 2 is <span id='sum'></span>
+</p>
+<p>
+  The difference of 1 and 2 is <span id='difference'></span>
+</p>
+<p>
+  The product of 1 and 2 is <span id='product'></span>
+</p>
+<p>
+ The quotient of 1 and 2 is <span id='quotient'></span>
+</p>
+<p>
+  The modulus of 1 and 2 is <span id='modulus'></span>
+</p>
+
+
+<script>
+  const calculate = (x, y, callbackFn) => {
+  return callbackFn(x, y);
+};
+const add = (x, y) => {
+  return x + y;
+}
+const subtract = (x, y) => {
+  return x - y;
+}
+const multiply = (x, y) => {
+  return x * y;
+}
+const divide = (x, y) => {
+  return x / y;
+}
+const mod = (x, y) => {
+  return x % y;
+}
+window.onload = ()=>{
+  const sum = calculate(1, 2, add);
+  const difference = calculate(1, 2, subtract);
+  const product = calculate(1, 2, multiply);
+  const quotient = calculate(1, 2, divide);
+  const modulus = calculate(1, 2, mod);
+
+  document.getElementById('sum').innerHTML = sum;
+  document.getElementById('difference').innerHTML = difference;
+  document.getElementById('product').innerHTML = product;
+  document.getElementById('quotient').innerHTML = quotient;
+  document.getElementById('modulus').innerHTML = modulus;
+}
+</script>
+
+
+<p id='hello'></p>
+<p id='welcome'></p>
+<p id='how-are-you'></p>
+<p id='goodbye'></p>
+
+<script>
+  const createGreetingFn = (message)=>{
+  const greeting = message;
+  const greet = () => greeting;
+  return greet;
+}
+window.onload = ()=>{
+  const hello = createGreetingFn('Hello');
+  const welcome = createGreetingFn('Welcome');
+  const howAreYou = createGreetingFn('How are you?');  
+  const goodBye = createGreetingFn('Goodbye');
+  document.getElementById('hello').innerHTML = hello();
+  document.getElementById('welcome').innerHTML = welcome();
+  document.getElementById('how-are-you').innerHTML = howAreYou();
+  document.getElementById('goodbye').innerHTML = goodBye();
+}
+</script> -->
+
+
+<ul data-list-links>
+ <li><a href="javascript:void(0)">Clique neste link</a></li>
+ <li><a href="javascript:void(0)">Clique neste link</a></li>
+ <li><a href="javascript:void(0)">Clique neste link</a></li>
+ <li><a href="javascript:void(0)">Clique neste link</a></li>
+</ul>
+
+<!-- <script>
+  const link = document.querySelectorAll('[data-list-links] a')
+link.forEach(item => {
+ item.addEventListener('click', event => { event.target.innerHTML = `Clique neste link (clicado em ${new Date()})`})
+})
+</script> -->
+
+<script>
+  function stepSum() {
+  var total = 0;
+    
+    for (var i = 0; i < arguments.length; i++) {
+  var parameter = arguments[i];
+        total += parameter;
+        console.log(`${i}) adding ${parameter} ` );
+    }
+    
+    console.log(`i=${i}, parameter=${parameter}`);
+    return total;
+}
+console.log(`total=${stepSum(3, 2, 1)}`)
+</script>
+
+</body>
+</html>

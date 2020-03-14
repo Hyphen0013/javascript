@@ -1,0 +1,62 @@
+
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*Basic Grid Styles*/
+.Grid {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+
+.Grid-cell {
+  flex: 1;
+}
+
+
+/* With gutters*/
+.Grid--gutters {
+  margin-left: -1em;
+}
+.Grid--gutters .Grid-cell {
+  padding-left: 1em;
+}
+.Grid--gutters .Grid--nested .Grid-cell:first-of-type .Demo {
+  margin-right: 1em;
+}
+
+
+.Grid--holly-grail .aside, .Grid--holly-grail .main {
+  flex: 1 100%;
+}
+
+
+/* Large screens */
+@media (min-width: 48em) {
+
+
+  .Grid--holly-grail .main {
+    flex: 2;
+  }
+  .Grid--holly-grail .aside {
+    flex: 1;
+  }
+  .Grid--holly-grail .aside-1 {
+    order: 1;
+  }
+  .Grid--holly-grail .main {
+    order: 2;
+  }
+  .Grid--holly-grail .aside-2 {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-box {
+    display: none;
+}
+}

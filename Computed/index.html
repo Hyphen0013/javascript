@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="firstname">
+	<input type="text" name="lastname">
+	<input type="text" name="interest">
+	<button>Display</button>
+	<p id="output"></p>
+
+
+
+	<script>
+		// let user = {
+		// 	firstname: '',
+		// 	lastname: '',
+		// 	interest: '',
+		// 	com: '@hyphen.com'
+		// }
+
+		let user = {}
+		let handleChange = function(val) {
+			// console.log(val);
+			const { name, value } = val.target;
+			user[name] = value;
+		}
+
+		let displayPerson = () => {
+			document.querySelector('#output').innerHTML = `${user.firstname} ${user.lastname} ${user.interest}`
+		}
+
+		document.querySelectorAll('input').forEach((e) => {
+			e.oninput = handleChange;
+			console.log(e.oninput);
+		});
+
+		document.querySelector('button').onclick = displayPerson;
+	</script>
+</body>
+</html>

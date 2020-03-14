@@ -1,0 +1,48 @@
+:root {
+	--box-gutter: 2.5px;
+	--box-size: 100px;
+}
+
+.loader {
+	width: calc(var(--box-size)*2 + var(--box-gutter)*2);
+	height: calc(var(--box-size)*2 + var(--box-gutter)*2);
+	transform: rotate(45deg);
+	overflow: auto;
+}
+
+ .loader::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+ 
+.box {
+  width: var(--box-size);
+  height: var(--box-size);
+}
+
+.box {
+	/*background-color: grey;*/
+	width: var(--box-size);
+	height: var(--box-size);
+}
+#box1 {
+	/*background-color: grey;*/
+	float: left;
+	margin: 0 var(--box-gutter) var(--box-gutter) 0;
+}
+#box2 {
+	/*background-color: grey;*/
+	float: left;
+	margin: 0 0 var(--box-gutter) var(--box-gutter);
+}
+#box3 {
+	/*background-color: grey;*/
+	float: left;
+	margin: var(--box-gutter) 0 0 var(--box-gutter);
+}
+#box4 {
+	/*background-color: grey;*/
+	float: left;
+	margin: var(--box-gutter) var(--box-gutter) 0 0;
+}

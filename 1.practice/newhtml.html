@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		function sum(arr) {
+			let first, second;
+			let blankArr = [];
+
+			if(arr[0] > arr[1]) {
+					first = arr[0];
+					second = arr[1];
+				} else {
+					first = arr[1];
+					second = arr[0]
+			}
+
+			for(let i = 2; i < arr.length; i++) {
+				
+				if(arr[i] > first) {
+					second = first;
+					first = arr[i];
+				}
+
+				if(arr[i] == first || arr[i] == second) {
+					return -1;
+				}
+
+
+			}
+
+			console.log(first + second);
+		}
+		sum([1, 2, 2, 4])
+	</script>
+
+
+<!-- 	<script>
+		function sum(arr) {
+		  let temp = 0;
+			let first = arr[0]
+
+		  for(let i = 0; i < arr.length; i++) {
+
+		    for(let j = 0; j <= i; j++) {
+		      temp = arr[i] + arr[j - 1] ;
+
+		      if(temp > first) {
+		      	first = temp
+		      } 
+
+		      if(temp === first) {
+		      	console.log(-1);
+		      }
+		    }    
+		  }
+		  console.log( first)
+		}
+		sum([12, 34, 10, 6, 40])
+	</script> -->
+
+</body>
+</html>

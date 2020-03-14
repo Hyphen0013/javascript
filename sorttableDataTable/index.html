@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+th[data-filter-value] {
+  cursor: pointer;
+}
+th.active {
+  color: red;
+}
+
+	</style>
+</head>
+<body>
+	<table id="squadTable" class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th data-filter-value="no" class="active">No</th>
+                <th>Adı</th>
+                <th>Pozisyonu</th>
+                <th data-filter-value="dateOfBirth">Yaş</th>
+                <th data-filter-value="match">Maç</th>
+                <th data-filter-value="goal">Gol</th>
+                <th data-filter-value="assist">AST</th>
+                <th data-filter-value="yellowCard">SK</th>
+                <th data-filter-value="doubleYellowCard">ÇSK</th>
+                <th data-filter-value="redCard">KK</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <script src="app.js"></script>
+</body>
+</html>

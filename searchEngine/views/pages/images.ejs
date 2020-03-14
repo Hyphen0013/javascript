@@ -1,0 +1,81 @@
+<%- include('../index.ejs') -%>
+
+
+<div class="masonry-image">
+    <h1>Responsive Masonry Grid</h1>
+    <p>A pure CSS-only responsive masonry.</p>
+    <h4>Photo from <a href="/"> home </a>. </h4>
+
+    <div class="masonry" id="masonry">
+
+
+
+            <div id="container"></div>
+
+    </div>
+
+    <div class="loading">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+
+</div>
+
+
+<script>
+
+    const container = document.getElementById("container");
+    const loading = document.querySelector(".loading");
+
+    getPost();
+    getPost();
+
+    window.addEventListener("scroll", () => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+        if (clientHeight + scrollTop >= scrollHeight - 5) {
+            showLoading();
+        }
+    });
+
+    function showLoading() {
+        loading.classList.add("show");
+
+        // load more data
+        setTimeout(getPost, 1000);
+    }
+
+
+    async function getPost() {
+        const userResponse = await fetch('http://localhost:3000/api/images');
+
+        const userData = await userResponse.json();
+        const data = { post: userData };
+
+        addDataDOM(data);
+    }
+
+    function addDataDOM(val) {
+
+        for (let datas in val) {
+            for (let i = 0; i < val.post.length; i++) {
+
+                console.log(val[datas][i].avatar);
+
+                const item = document.createElement("div");
+                item.classList.add("item");
+
+                item.innerHTML = `
+                            <img src="${val[datas][i].avatar}" />
+                        
+                    `
+                container.appendChild(item);
+                loading.classList.remove("show");
+            }
+        }
+
+
+    }
+
+</script>

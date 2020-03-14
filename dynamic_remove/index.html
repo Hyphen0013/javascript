@@ -1,0 +1,232 @@
+<html>
+<head>
+<script>
+function add_field()
+{
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length+1;
+  document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+  "<p id='input_text"+total_text+"_wrapper'><input type='text' class='input_text' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
+}
+function remove_field(id)
+{
+  document.getElementById(id+"_wrapper").innerHTML="";
+}
+</script>
+<style>
+body
+{
+  margin:0 auto;
+  padding:0;
+  text-align:center;
+  height:2000px;
+  background-color:silver;
+}
+#wrapper
+{
+  width:995px;
+  padding:0px;
+  margin:0px auto;
+  font-family:helvetica;
+  text-align:center;
+}
+input[type="text"]
+{
+  width:200px;
+  height:35px;
+  margin-right:2px;
+  border-radius:3px;
+  border:1px solid green;
+  padding:5px;
+}
+input[type="button"]
+{
+  background:none;
+  color:white;
+  border:none;
+  width:110px;
+  height:35px;
+  border-radius:3px;
+  background-color:green;
+  font-size:16px;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<div id="field_div">
+<input type="button" value="Add TextBox" onclick="add_field();">
+</div>
+</div>
+
+
+
+<div class="modal-body text-left">
+    <form id="addressForm" name="addressForm" method="POST" action="#" target="_top">
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="tax_name">Tax Type</label>
+                <select class="form-control tax_name" name="tax_name" id="tax_name">
+                    <option disabled value="" selected>Select TAX</option>
+                    <option value="GST" id="gst">GST</option>
+                    <option value="IGST" id="igst">IGST</option>
+
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="tax_value">Tax %</label>
+                <input type="text" class="form-control" id="tax_value" name="tax_value" value="0" placeholder="Range 1 to 100">
+                <span style="color: red" id="tax_val_err"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6" id="cgst2">
+                <label for="cgst">CGST %</label>
+                <input type="text" class="form-control" id="cgst" value="0" name="cgst" placeholder="Range 1 to 100">
+            </div>
+            <div class="form-group col-md-6" id="sgst2">
+                <label for="sgst">SGST %</label>
+                <input type="text" class="form-control" id="sgst" value="0" name="sgst" placeholder="Range 1 to 100">
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="form-group col-md-6">
+                <label for="igst_val">IGST %</label>
+                <input type="text" class="form-control" id="igst_val" name="igst" placeholder="Range 1 to 100">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address_type">Status</label><br />
+                <select class="form-control" name="rcu_status" id="rcu_status">
+                    <option disabled value="" selected>Select</option>
+                    <option value="1">Active</option>
+                    <option value="0">In-Active</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <input type="submit" class="btn btn-success btn-sm" name="add_address" id="add_address" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    let selectTag = document.getElementById("tax_name");
+    let taxValue = document.getElementById('tax_value');
+    let igstValue = document.getElementById('igst_val');
+    let val;
+
+
+    selectTag.addEventListener('change', mainFun)
+
+    function mainFun() {
+        selectFun()
+        taxValue.addEventListener('keyup', valueFun);
+    }
+
+    function selectFun() {
+        if (document.getElementById('tax_name').value === 'IGST') {
+            document.getElementById('cgst').disabled = 'true';
+            // document.getElementById('cgst2').style.display = 'none';
+            document.getElementById('sgst').disabled = 'true';
+            document.getElementById('cgst').value = 0;
+            document.getElementById('sgst').value = 0;
+        } else {
+            document.getElementById('cgst').disabled = '';
+            document.getElementById('sgst').disabled = '';
+            document.getElementById('cgst').value = val / 2 || 0;
+            document.getElementById('sgst').value = val / 2 || 0;
+
+        }
+    }
+
+    function valueFun() {
+        val = document.getElementById('tax_value').value;
+        let error = document.getElementById('tax_val_err');
+
+        if(document.getElementById('tax_name').value === 'IGST') {
+            document.getElementById('cgst').value = 0;
+            document.getElementById('sgst').value = 0;
+        } else  if(isNaN(val) || val < 1 || val > 10) {
+            error.innerText = 'Range 0 to 9 '
+        } else {
+            document.getElementById('cgst').value = val / 2;
+            document.getElementById('sgst').value = val / 2;
+            error.innerText = ''
+        }
+        
+    }
+</script>
+
+<!-- <script>
+    let selectTag = document.getElementById("tax_name");
+    let taxValue = document.getElementById('tax_value');
+    document.getElementById('igst_val').style.display = 'none';
+    
+    let val;
+
+
+    selectTag.addEventListener('change', mainFun)
+
+    // call main function
+    function mainFun() {
+        
+        taxValue.addEventListener('keyup', valueFun);
+        selectFun()
+        
+    }
+
+    // function for display or remove input
+    function selectFun() {
+        
+
+        if (document.getElementById('tax_name').value === 'IGST') {
+            document.getElementById('cgst2').style.display = 'none';
+            document.getElementById('sgst2').style.display = 'none';
+            document.getElementById('igst_val').style.display = 'block';
+
+            
+            // document.getElementById('igst_').value = val || 0;
+        }  else {
+            document.getElementById('cgst2').style.display = 'block';
+            document.getElementById('sgst2').style.display = 'block';
+            document.getElementById('igst_val').style.display = 'none';
+
+            document.getElementById('cgst').value = val / 2 || 0;
+            document.getElementById('sgst').value = val / 2 || 0;
+            // document.getElementById('igst_').value = 0;
+
+        }
+
+    }
+
+    // function for divide value
+    function valueFun() {
+
+        val = document.getElementById('tax_value').value;
+        let error = document.getElementById('tax_val_err');
+
+        if(document.getElementById('tax_name').value === 'IGST') {
+            document.getElementById('cgst').value = 0;
+            document.getElementById('sgst').value = 0;
+            document.getElementById('igst_').value = val;
+        } 
+        else  if(isNaN(val) || val <= 0 ) {
+            error.innerText = 'Only number and greater than 0 '
+            document.getElementById('cgst').value = val / 2 || 0;
+            document.getElementById('sgst').value = 0;
+        }
+        else {
+            document.getElementById('cgst').value = val / 2;
+            document.getElementById('sgst').value = val / 2;
+            document.getElementById('igst_').value = 0;
+            error.innerText = ''
+        }
+    }
+</script> -->
+</body>
+</html>

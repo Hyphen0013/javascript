@@ -1,0 +1,14 @@
+{
+  "name": "prime_num_fix_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hyphen",
+  "license": "ISC",
+  "dependencies": {
+    "worker-thread": "^1.1.0"
+  }
+}

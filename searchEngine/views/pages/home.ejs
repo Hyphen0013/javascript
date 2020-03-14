@@ -1,0 +1,72 @@
+<%- include('../index.ejs'); -%>
+
+<section id="screen1">
+    <div class="form-group">
+        <label for="search">Hyphen</label><br>
+        <input type="text" class="suggested_input" name="search" id="search" autocomplete="off" placeholder="search here">
+        <ul class="suggestions" id="results">
+        </ul>
+
+    </div>
+    <nav id="nav">
+        <ul>
+            <li><a href="#">Gmail</a></li>
+            <li><a href="/images">Images</a></li>
+        </ul>
+    </nav>
+
+</section>
+
+<script>
+    let results = document.getElementById('results');
+    search.addEventListener('keyup', searchFunction);
+
+    function searchFunction(event) {
+
+        let search = document.getElementById('search').value;
+
+        const searchUser = {
+            search: search
+        };
+
+        fetch('http://localhost:3000/search/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(searchUser)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                
+                results.innerHTML = "";
+
+                data.forEach((user) => {
+
+                    if(search !== "") {
+                        
+                        return results.innerHTML += (
+                            `
+                                <li>
+                                    <a href="/search/${user.id}" >
+                                        <img src="${user.avatar}" alt="" height="40" width="40">
+                                        <span>${user.first_name} ${user.last_name} | ${user.email}</span>
+                                    </a>
+                                </li>
+                            `
+                        )
+                    } else {
+                        results.innerHTML = "";
+                    }
+                })
+            
+            })
+            .catch(error => console.log(error))
+
+        event.preventDefault();
+    }
+
+
+
+
+</script>

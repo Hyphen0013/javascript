@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skills</title>
+</head>
+
+<body>
+    Skills :
+    <form action="#" id="skills" style="margin-bottom: 20px;">
+        <input type="checkbox" name="skills" value="c">c
+        <input type="checkbox" name="skills" value="java">java
+        <input type="checkbox" name="skills" value="C#">C#
+        <input type="checkbox" name="skills" value="c+">c+
+    </form>
+
+
+    Preferred Cities :
+    <form action="#" id="cities" style="margin-bottom: 20px;">
+        <input type="checkbox" name="cities" value="New York">New York
+        <input type="checkbox" name="cities" value="New Delhi">New Delhi
+        <input type="checkbox" name="cities" value="London">London
+    </form>
+
+
+    <br>
+    <input type="button" value="Get Selected Skills" onclick="getAllSkills();">
+    <input type="submit" value="Get Selected Cities" onclick="getAllCities();">
+    <br><br>
+
+    <!-- ALL Skills show -->
+    <div>
+        <h2>Skills</h2>
+        <p id="skillsValue"></p>
+    </div>
+
+    <!-- ALL Cities show -->
+    <div style="margin-bottom: 10px;">
+        <h2>Cities</h2>
+        <p id="citiesValues"></p>
+    </div>
+
+
+</body>
+
+<script src="./app.js"></script>
+
+</html>
